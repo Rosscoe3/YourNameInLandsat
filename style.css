@@ -50,11 +50,37 @@ body {
 
 #enterButton {
   padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: #f0f0f0;
+  text-decoration: none;
+  color: #333;
   cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+#enterButton:hover {
+  background-color: #c7c7c7;
+  color: #333;
+  cursor: pointer;
+}
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.download-button:hover {
+  background-color: #ddd;
+  color: #333;
 }
 
 #nameBoxes {
@@ -116,5 +142,28 @@ body {
 
 .blankDiv{
   width: 2%;
+}
+
+.location-info {
+  text-align: center; /* Center align the content */
+  margin: 20px auto; /* Add some margin for better spacing */
+  position: absolute;
+  bottom: 15%;
+}
+
+.location-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  text-decoration: none; /* Remove underline from hyperlink */
+  color: #333; /* Set text color */
+}
+
+.location-title:hover {
+  color: #000; /* Change color on hover */
+}
+
+.location-coordinates {
+  color: #666; /* Set text color for coordinates */
+  font-size: 0.9em;
 }
 
