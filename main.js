@@ -52,7 +52,7 @@ enterButton.addEventListener("click", function() {
             //img.src = "images/" + input[i].toLowerCase() + "_0.jpg";
 
             var name = pickLetterImage(input[i]);
-            img.src = "images/" + name + ".jpg";
+            img.src = "images/" + name.toLowerCase() + ".jpg";
             img.alt = name;
             img.addEventListener("mouseover", function()
             { 
