@@ -142,6 +142,7 @@ body {
 
 #nameBoxes img.selected {
   scale: 1.1;
+  /* border: 2px solid black; */
 }
 
 .blankDiv{
@@ -179,5 +180,12 @@ body {
 .location-coordinates {
   color: #666; /* Set text color for coordinates */
   font-size: 0.9em;
+  opacity: 0%;
+
+  transition: all ease-in-out 0.5s;
+}
+
+.location-coordinates.active {
+  opacity: 100%;
 }
 
