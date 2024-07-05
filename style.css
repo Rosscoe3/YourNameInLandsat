@@ -140,6 +140,10 @@ body {
   scale: 1.1;
 }
 
+#nameBoxes img.selected {
+  scale: 1.1;
+}
+
 .blankDiv{
   width: 2%;
 }
@@ -152,14 +156,24 @@ body {
 }
 
 .location-title {
+  pointer-events: none;
+  opacity: 0%;
+
   font-weight: bold;
   font-size: 1.2em;
   text-decoration: none; /* Remove underline from hyperlink */
   color: #333; /* Set text color */
+
+  transition: all ease-in-out 0.5s;
 }
 
 .location-title:hover {
   color: #000; /* Change color on hover */
+}
+
+.location-title.active {
+  opacity: 100%;
+  pointer-events: all;
 }
 
 .location-coordinates {
