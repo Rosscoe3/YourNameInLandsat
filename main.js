@@ -10,6 +10,7 @@ const locationTitle = document.getElementById("locationTitle");
 const locationCoordinates = document.getElementById("locationCoordinates");
 
 let imageSelected = false;
+createImages("", "landsat");
 
 enterButton.addEventListener("click", function() {
   
@@ -20,81 +21,91 @@ enterButton.addEventListener("click", function() {
   {
     if(nameBoxes.children.length > 0) // Check if there are existing boxes
     {
-      
-      console.log(nameBoxes.children.length);
-
       // Disable all current letters
       for(let x = 0; x < nameBoxes.children.length; x++)
       {
         nameBoxes.children[x].classList.toggle("active");
       }
 
-      // Wait till all children have disabled before activating new letters
-      setTimeout(() => {
-        // Remove all child elements to start with a clean slate
-        while (nameBoxes.firstChild) 
-        {
-          nameBoxes.removeChild(nameBoxes.firstChild);
-        }
-  
-        // Set gap based on the amount of text
-        let gap = convertRange(input.length, [1, 50], [1, 0.1] );
-        nameBoxes.style.gap = gap + "%";
-
-        // Create amount of images based on the number of characters
-        for(let i = 0; i < input.length; i++)
-        {
-          console.log(input[i]);
-
-          // If the input character isn't a blank space
-          if(input[i] != " ")
-          {
-            const img = document.createElement("img");
-
-            //img.src = "images/" + input[i].toLowerCase() + "_0.jpg";
-
-            var name = pickLetterImage(input[i]).toLowerCase();
-            img.src = "images/" + name + ".jpg";
-            img.alt = name;
-            img.id = "img";
-            img.addEventListener("mouseover", function()
-            { 
-              imageOver(this, name); 
-            });
-            img.addEventListener("mouseout", function()
-            { 
-              imageOut(this, name); 
-            });
-
-            if(!img.src)
-            {
-              img.src = "images/test.jpg";
-            }
-    
-            setTimeout(() => {
-              img.classList.toggle("active");
-            }, 750);
-
-            nameBoxes.appendChild(img);
-          }
-          // If the input character is a blank space
-          else
-          {
-            const blankDiv = document.createElement("div");
-            blankDiv.classList = "blankDiv";
-            let width = convertRange(input.length, [1, 50], [2, 5] );
-            blankDiv.style.width = width + "%";
-            
-            nameBoxes.appendChild(blankDiv);
-          }
-        }
-      }, 750);
-      
     }
 
-    const newBoxes = []; // Array to store new name boxes
+    createImages(input);
   } 
 });
+
+function createImages(input, optionalText)
+{
+  let theInput;
+
+  if(input)
+  {
+    theInput = input;
+  }
+  else if(optionalText)
+  {
+    theInput = optionalText;
+  }
+  
+  setTimeout(() => {
+    // Remove all child elements to start with a clean slate
+    while (nameBoxes.firstChild) 
+    {
+      nameBoxes.removeChild(nameBoxes.firstChild);
+    }
+
+    // Set gap based on the amount of text
+    let gap = convertRange(theInput.length, [1, 50], [1, 0.1] );
+    nameBoxes.style.gap = gap + "%";
+
+    // Create amount of images based on the number of characters
+    for(let i = 0; i < theInput.length; i++)
+    {
+      console.log(theInput[i]);
+
+      // If the theInput character isn't a blank space
+      if(theInput[i] != " ")
+      {
+        const img = document.createElement("img");
+
+        //img.src = "images/" + theInput[i].toLowerCase() + "_0.jpg";
+
+        var name = pickLetterImage(theInput[i]).toLowerCase();
+        img.src = "images/" + name + ".jpg";
+        img.alt = name;
+        img.id = "img";
+        img.addEventListener("mouseover", function()
+        { 
+          imageOver(this, name); 
+        });
+        img.addEventListener("mouseout", function()
+        { 
+          imageOut(this, name); 
+        });
+
+        if(!img.src)
+        {
+          img.src = "images/test.jpg";
+        }
+
+        setTimeout(() => {
+          img.classList.toggle("active");
+        }, 750);
+
+        nameBoxes.appendChild(img);
+      }
+      // If the theInput character is a blank space
+      else
+      {
+        const blankDiv = document.createElement("div");
+        blankDiv.classList = "blankDiv";
+        let width = convertRange(theInput.length, [1, 50], [2, 5] );
+        blankDiv.style.width = width + "%";
+        
+        nameBoxes.appendChild(blankDiv);
+      }
+    }
+  }, 750); 
+}
 
 // Execute a function when the user presses a key on the keyboard
 document.addEventListener("keypress", function(event) {
@@ -275,6 +286,20 @@ function imageOver(x)
       locationCoordinates.innerHTML = "36°35'20.8 N 89°20'26.9 W";
       locationCoordinates.href = "https://www.google.com/maps/place/36%C2%B035'20.8%22N+89%C2%B020'26.9%22W/@36.5689533,-89.4212718,11.38z/data=!4m4!3m3!8m2!3d36.5891111!4d-89.3408056?entry=ttu";
     }
+    if(x.alt == "a_1")
+    {
+      locationTitle.innerHTML = "Farm Island, Maine";
+      locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=12&lat=45.72955&lng=-69.82498&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX18%2FHSd6JTieOsaYIJZjmwSh1wZLiy3KHcN7c4bQZKnHzW7qhlyXWLu75IU4xUNArTK96RN61PFDbDHJ5Xp%2FPStjjG5zLiRsMOxqu1ir7hZZHEaOJf%2FGRXwb&datasetId=AWS_LOTL1&fromTime=2024-02-18T00%3A00%3A00.000Z&toTime=2024-02-18T23%3A59%3A59.999Z&layerId=1_TRUE_COLOR&demSource3D=%22MAPZEN%22";
+      locationCoordinates.innerHTML = "45°43'43.8 N 69°46'08.9 W";
+      locationCoordinates.href = "https://maps.app.goo.gl/WD96YAsNziK5rMCL9";
+    }
+    if(x.alt == "a_2")
+    {
+      locationTitle.innerHTML = "Northeast Greenland National Park, Greenland";
+      locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=9&lat=76.32562&lng=-20.6131&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX1%2FWHKoaTIZiYaCYjyATLoj5JQN20Flg6RCw9X2bYLa3MrjvRwGhiuhfqvmh3gn7owLSSYZ%2B2DWpMAOEbdgF3HGMEj%2FhP%2FjUflAGh%2FSGLlcN9kvMZoNi%2FyYE&datasetId=AWS_LOTL1&fromTime=2024-07-08T00%3A00%3A00.000Z&toTime=2024-07-08T23%3A59%3A59.999Z&layerId=1_TRUE_COLOR&demSource3D=%22MAPZEN%22";
+      locationCoordinates.innerHTML = "76°19'01.6 N 20°26'48.8 W";
+      locationCoordinates.href = "https://www.google.com/maps/place/76%C2%B019'01.6%22N+20%C2%B026'48.8%22W/@76.2712569,-21.2554405,112024m/data=!3m1!1e3!4m10!1m5!3m4!2zODDCsDAzJzE4LjgiTiAxOcKwMDgnNTkuOCJX!8m2!3d80.055233!4d-19.14994!3m3!8m2!3d76.317102!4d-20.446896?entry=ttu";
+    }
     if(x.alt == "b_0")
     {
       locationTitle.innerHTML = "Holla Bend, Arkansas";
@@ -295,6 +320,13 @@ function imageOver(x)
       locationTitle.href = "https://earthobservatory.nasa.gov/images/146164/the-island-shaped-like-a-horseshoe";
       locationCoordinates.innerHTML = "62°57'22.3 S 60°38'32.8 W";
       locationCoordinates.href = "https://www.google.com/maps/place/62%C2%B057'22.3%22S+60%C2%B038'32.8%22W/@-62.9561919,-60.6450193,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-62.9561944!4d-60.6424444?entry=ttu";
+    }
+    if(x.alt == "c_2")
+    {
+      locationTitle.innerHTML = "False River, Louisiana";
+      locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=11&lat=30.64352&lng=-91.46324&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX1%2Fa1U9bEMXeDYeinWHxvi5LmLVtnUa3pvvao%2B08f3KVVqH1lh%2ByawbTq4XlPTmZXT2t5d%2BW2cjixfCFyiO%2B4vCo1WUlyOkChQyEoj4h5oWBGnDIkB3FBLgY&datasetId=AWS_LOTL1&fromTime=2024-06-14T00%3A00%3A00.000Z&toTime=2024-06-14T23%3A59%3A59.999Z&layerId=1_TRUE_COLOR&demSource3D=%22MAPZEN%22";
+      locationCoordinates.innerHTML = "30°38'39.7 N 91°26'45.7 W";
+      locationCoordinates.href = "https://maps.app.goo.gl/ZmBE1WmqARofgTpd6";
     }
     if(x.alt == "d_0")
     {
@@ -323,6 +355,13 @@ function imageOver(x)
       locationTitle.href = "https://earthobservatory.nasa.gov/images/151169/stirring-up-carbonate-in-the-coral-sea​";
       locationCoordinates.innerHTML = "20°30'00.0 S 158°30'00.0 E";
       locationCoordinates.href = "https://www.google.com/maps/place/20%C2%B030'00.0%22S+158%C2%B030'00.0%22E/@-16.8094327,154.1932946,5.04z/data=!4m4!3m3!8m2!3d-20.5!4d158.5?entry=ttu";
+    }
+    if(x.alt == "f_0")
+    {
+      locationTitle.innerHTML = "Mato Grosso, Brazil";
+      locationTitle.href = "​https://worldview.earthdata.nasa.gov/?v=-55.58420292667843,-14.008907715628611,-55.04749399938841,-13.663154175100724&l=Reference_Labels_15m(hidden),Reference_Features_15m(hidden),Coastlines_15m,HLS_L30_Nadir_BRDF_Adjusted_Reflectance,VIIRS_NOAA21_CorrectedReflectance_TrueColor(hidden),VIIRS_NOAA20_CorrectedReflectance_TrueColor(hidden),VIIRS_SNPP_CorrectedReflectance_TrueColor(hidden),MODIS_Aqua_CorrectedReflectance_TrueColor(hidden),MODIS_Terra_CorrectedReflectance_TrueColor&lg=true&t=2024-07-06-T15%3A01%3A15Z";
+      locationCoordinates.innerHTML = "13°50'26.9 S 55°17'55.0 W";
+      locationCoordinates.href = "https://www.google.com/maps/place/2%C2%B026'30.8%22S+66%C2%B016'43.7%22W/@-2.4639488,-66.4453563,11z/data=!4m4!3m3!8m2!3d-2.4419!4d-66.2788?entry=ttu";
     }
     if(x.alt == "g_0")
     {
@@ -401,6 +440,13 @@ function imageOver(x)
       locationCoordinates.innerHTML = "42°07'16.4 N 80°02'44.1 E";
       locationCoordinates.href = "https://www.google.com/maps/search/Tian+Shan+Mountains,+Kyrgyzstan+/@42.1159018,79.945501,16875m/data=!3m1!1e3?entry=ttu";
     }
+    if(x.alt == "n_0")
+    {
+      locationTitle.innerHTML = "Yapacani, Bolivia";
+      locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=12&lat=-17.31049&lng=-63.88481&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX1%2BU6w20TRH7ZUcuUv5moFUKyJ%2FblVt3NA1%2Bb9hV1AKEw0PIxiDdf4iOxjTeatiohOCQCTw1inWzZwg9uof48NABs0AYI6H0dOugrN%2FWAfPHZm1HVKJ%2BXkMX&datasetId=AWS_LOTL1&fromTime=2024-03-27T00%3A00%3A00.000Z&toTime=2024-03-27T23%3A59%3A59.999Z&layerId=3_FALSE_COLOR&demSource3D=%22MAPZEN%22​";
+      locationCoordinates.innerHTML = "17°18'29.7 S 63°53'19.0 W";
+      locationCoordinates.href = "https://www.google.com/maps/place/17%C2%B018'29.7%22S+63%C2%B053'19.0%22W/@-17.3017879,-63.9208891,16748m/data=!3m1!1e3!4m13!1m8!3m7!1s0x93efc12154605597:0xe0a5b6e6c5b7cf8a!2sYapacani,+Bolivia!3b1!8m2!3d-17.4013758!4d-63.8817832!16s%2Fm%2F05b_187!3m3!8m2!3d-17.308241!4d-63.888606?entry=ttu";
+    }
     if(x.alt == "o_0")
     {
       locationTitle.innerHTML = "Crater Lake, Oregon";
@@ -439,7 +485,7 @@ function imageOver(x)
     if(x.alt == "s_1")
     {
       locationTitle.innerHTML = "N’Djamena, Chad";
-      locationTitle.href = "https://earthobservatory.nasa.gov/images/87237/the-alphabet-from-orbit-letter-t";
+      locationTitle.href = "https://earthobservatory.nasa.gov/images/150521/flooding-in-ndjamena";
       locationCoordinates.innerHTML = "12°00'27.7 N 15°03'46.2 E";
       locationCoordinates.href = "https://www.google.com/maps/place/12%C2%B000'27.7%22N+15%C2%B003'46.2%22E/@12.0046806,15.0451832,17158m/data=!3m1!1e3!4m13!1m8!3m7!1s0x11196053fc686ffb:0xf9442c3f64221374!2sDigangali,+Chad!3b1!8m2!3d12.0619444!4d15.0727778!16s%2Fg%2F11nmsbmc9w!3m3!8m2!3d12.007689!4d15.062824?entry=ttu";
     }
@@ -527,8 +573,14 @@ function imageOver(x)
       locationCoordinates.innerHTML = "5°51'53.4 S 80°43'51.6 W";
       locationCoordinates.href = "https://www.google.com/maps/place/5%C2%B051'53.4%22S+80%C2%B043'51.6%22W/@-5.8409555,-80.83445,12.13z/data=!4m12!1m7!3m6!1s0x90497ce60f8e3bc1:0x703ee5f60c9c907d!2sEstuario+de+Virrila!8m2!3d-5.7988889!4d-80.8647222!16s%2Fg%2F12ls2ksqv!3m3!8m2!3d-5.864833!4d-80.730992?entry=ttu";
     }
+    if(x.alt == "z_0")
+    {
+      locationTitle.innerHTML = "Primavera do Leste, Brazil";
+      locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=12&lat=-15.49521&lng=-54.34284&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX18O52iitrh0cnAcCfBS798hlrguhFdZ9QvQfjz67EBag34vBZGRzJIeGA6fTzbSnTgVhfykkGodMpS%2Fm4K4pCUWB5IKdxfj%2BtfaltJwWYzJRS58HEoxyjT%2F&datasetId=AWS_LOTL1&fromTime=2024-06-29T00%3A00%3A00.000Z&toTime=2024-06-29T23%3A59%3A59.999Z&layerId=1_TRUE_COLOR&demSource3D=%22MAPZEN%22";
+      locationCoordinates.innerHTML = "15°29'38.9 S 54°20'27.5 W";
+      locationCoordinates.href = "https://www.google.com/maps/place/15%C2%B029'38.9%22S+54%C2%B020'27.5%22W/@-15.4976757,-54.3580248,14215m/data=!3m1!1e3!4m13!1m8!3m7!1s0x9377238863d94d8d:0xac7e6dab9bd8285e!2sPrimavera+do+Leste+-+State+of+Mato+Grosso,+Brazil!3b1!8m2!3d-15.5605334!4d-54.2950533!16s%2Fm%2F09rs3h3!3m3!8m2!3d-15.494126!4d-54.34096?entry=ttu";
+    }
   }
-
 }
 function imageOut(x)
 {
@@ -536,15 +588,15 @@ function imageOut(x)
   if(!imageSelected)
   {
     //** If the Location Title is active, disable it */
-    if(locationTitle.classList.contains("active"))
-    {
-      locationTitle.classList.toggle("active");
-    }
+    // if(locationTitle.classList.contains("active"))
+    // {
+    //   locationTitle.classList.toggle("active");
+    // }
     //** If location title isn't active, enable it*/
-    if(locationCoordinates.classList.contains("active"))
-    {
-      locationCoordinates.classList.toggle("active");
-    }
+    // if(locationCoordinates.classList.contains("active"))
+    // {
+    //   locationCoordinates.classList.toggle("active");
+    // }
   }
 
 }
@@ -552,18 +604,24 @@ function imageOut(x)
 //** Click event to handle selection of images */
 window.onclick = function(event) 
 {
-  for(let x = 0; x < nameBoxes.children.length; x++)
-  {
-    if(nameBoxes.children[x].classList.contains("selected"))
-    {
-      nameBoxes.children[x].classList.toggle("selected")
-    }
-  }
-  
   if (event.target.matches('img')) 
   {
+    if(!event.target.classList.contains("selected"))
+    {
+      for(let x = 0; x < nameBoxes.children.length; x++)
+      {
+        if(nameBoxes.children[x].classList.contains("selected"))
+        {
+          nameBoxes.children[x].classList.toggle("selected")
+        }
+      }
+      imageSelected = true;
+    }
+    else
+    {
+      imageSelected = false;
+    }
     event.target.classList.toggle("selected");
-    imageSelected = true;
   }
   //** Disable all other  */
   else
