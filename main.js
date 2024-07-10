@@ -147,7 +147,7 @@ function pickLetterImage(text)
 
   if(text.toLowerCase() == "a")
   {
-    //number = getRandomInt(0, 1);
+    number = getRandomInt(0, 2);
   }
   else if(text.toLowerCase() == "b")
   {
@@ -155,7 +155,7 @@ function pickLetterImage(text)
   }
   else if(text.toLowerCase() == "c")
   {
-    number = getRandomInt(0, 1);
+    number = getRandomInt(0, 2);
   }
   else if(text.toLowerCase() == "d")
   {
@@ -291,7 +291,7 @@ function imageOver(x)
       locationTitle.innerHTML = "Farm Island, Maine";
       locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=12&lat=45.72955&lng=-69.82498&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX18%2FHSd6JTieOsaYIJZjmwSh1wZLiy3KHcN7c4bQZKnHzW7qhlyXWLu75IU4xUNArTK96RN61PFDbDHJ5Xp%2FPStjjG5zLiRsMOxqu1ir7hZZHEaOJf%2FGRXwb&datasetId=AWS_LOTL1&fromTime=2024-02-18T00%3A00%3A00.000Z&toTime=2024-02-18T23%3A59%3A59.999Z&layerId=1_TRUE_COLOR&demSource3D=%22MAPZEN%22";
       locationCoordinates.innerHTML = "45°43'43.8 N 69°46'08.9 W";
-      locationCoordinates.href = "https://maps.app.goo.gl/WD96YAsNziK5rMCL9";
+      locationCoordinates.href = "https://www.google.com/maps/place/45%C2%B043'45.4%22N+69%C2%B046'04.7%22W/@45.7292113,-69.7763592,6123m/data=!3m1!1e3!4m4!3m3!8m2!3d45.729275!4d-69.76798?entry=ttu";
     }
     if(x.alt == "a_2")
     {
@@ -305,28 +305,28 @@ function imageOver(x)
       locationTitle.innerHTML = "Holla Bend, Arkansas";
       locationTitle.href = "https://earthobservatory.nasa.gov/images/87241/the-alphabet-from-orbit-letter-b";
       locationCoordinates.innerHTML = "35°08'41.1 N 93°03'16.5 W";
-      locationCoordinates.href = "https://www.google.com/maps/place/35%C2%B008'41.1%22N+93%C2%B003'16.5%22W/@35.1447544,-93.0571582,17z/data=!3m1!4b1!4m4!3m3!8m2!3d35.14475!4d-93.0545833?entry=ttu";
+      locationCoordinates.href = "https://www.google.com/maps/place/35%C2%B008'41.1%22N+93%C2%B003'16.5%22W/@35.150256,-93.0998349,20284m/data=!3m1!1e3!4m4!3m3!8m2!3d35.14475!4d-93.0545833?entry=ttu";
     }
     if(x.alt == "c_0")
     {
       locationTitle.innerHTML = "Black Rock Desert, Nevada";
       locationTitle.href = "https://earthobservatory.nasa.gov/images/151802/summer-rains-on-nevadas-black-rock-playa?src=ve";
       locationCoordinates.innerHTML = "40°47'15.8 N 119°12'13.0 W";
-      locationCoordinates.href = "https://www.google.com/maps/place/40%C2%B047'15.8%22N+119%C2%B012'13.0%22W/@40.7482658,-119.5536543,84761m/data=!3m1!1e3!4m4!3m3!8m2!3d40.7877096!4d-119.203614?entry=ttu";
+      locationCoordinates.href = "https://www.google.com/maps/place/40%C2%B047'15.8%22N+119%C2%B012'13.0%22W/@40.7765477,-119.2977163,26799m/data=!3m1!1e3!4m4!3m3!8m2!3d40.7877222!4d-119.2036111?entry=ttu";
     }
     if(x.alt == "c_1")
     {
       locationTitle.innerHTML = "Deception Island, Antarctica";
       locationTitle.href = "https://earthobservatory.nasa.gov/images/146164/the-island-shaped-like-a-horseshoe";
       locationCoordinates.innerHTML = "62°57'22.3 S 60°38'32.8 W";
-      locationCoordinates.href = "https://www.google.com/maps/place/62%C2%B057'22.3%22S+60%C2%B038'32.8%22W/@-62.9561919,-60.6450193,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-62.9561944!4d-60.6424444?entry=ttu";
+      locationCoordinates.href = "https://www.google.com/maps/place/62%C2%B057'22.3%22S+60%C2%B038'32.8%22W/@-62.9597921,-60.8265853,38265m/data=!3m1!1e3!4m4!3m3!8m2!3d-62.9561944!4d-60.6424444?entry=ttu";
     }
     if(x.alt == "c_2")
     {
       locationTitle.innerHTML = "False River, Louisiana";
       locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=11&lat=30.64352&lng=-91.46324&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX1%2Fa1U9bEMXeDYeinWHxvi5LmLVtnUa3pvvao%2B08f3KVVqH1lh%2ByawbTq4XlPTmZXT2t5d%2BW2cjixfCFyiO%2B4vCo1WUlyOkChQyEoj4h5oWBGnDIkB3FBLgY&datasetId=AWS_LOTL1&fromTime=2024-06-14T00%3A00%3A00.000Z&toTime=2024-06-14T23%3A59%3A59.999Z&layerId=1_TRUE_COLOR&demSource3D=%22MAPZEN%22";
       locationCoordinates.innerHTML = "30°38'39.7 N 91°26'45.7 W";
-      locationCoordinates.href = "https://maps.app.goo.gl/ZmBE1WmqARofgTpd6";
+      locationCoordinates.href = "https://www.google.com/maps/place/30%C2%B038'39.7%22N+91%C2%B026'45.7%22W/@30.6517944,-91.5063747,22066m/data=!3m1!1e3!4m4!3m3!8m2!3d30.644357!4d-91.446029?entry=ttu";
     }
     if(x.alt == "d_0")
     {
@@ -379,10 +379,10 @@ function imageOver(x)
     }
     if(x.alt == "i_0")
     {
-      locationTitle.innerHTML = "Petermann Glacier, Greenland";
-      locationTitle.href = "https://earthobservatory.nasa.gov/images/151358/retreat-at-petermann-glacier​";
-      locationCoordinates.innerHTML = "81°29'14.9 N 54°34'50.1 W";
-      locationCoordinates.href = "https://www.google.com/maps/place/81%C2%B029'14.9%22N+54%C2%B034'50.1%22W/@81.4874808,-54.5854659,162m/data=!3m2!1e3!4b1!4m12!1m7!3m6!1s0x4fc83c8a2acdcf2d:0xebd0c56e04079842!2sPetermann+Glacier!8m2!3d80.5!4d-59.5000001!16s%2Fm%2F06w9gr5!3m3!8m2!3d81.48748!4d-54.580595?entry=ttu";
+      locationTitle.innerHTML = "Borgarbyggð, Iceland";
+      locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=11&lat=64.78787&lng=-22.57242&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX194EmWiFw43hEItR4oMSSn7sLDV1fSwF0Va3Xb%2FYZfz3%2BxHbwk26S%2Be3ydFuvY5MsvihykFJkwEUcFrJ8Pz8ca3jV71cM1tbvlNsmHd%2BkRv87uDiQPP9z57&datasetId=AWS_LOTL1&fromTime=2024-03-28T00%3A00%3A00.000Z&toTime=2024-03-28T23%3A59%3A59.999Z&layerId=1_TRUE_COLOR&demSource3D=%22MAPZEN%22​";
+      locationCoordinates.innerHTML = "64°45'46.4 N 22°27'28.0 W";
+      locationCoordinates.href = "https://www.google.com/maps/place/64%C2%B045'46.4%22N+22%C2%B027'28.0%22W/@64.7585629,-22.5872018,27545m/data=!3m1!1e3!4m4!3m3!8m2!3d64.7628889!4d-22.4577778?entry=ttu";
     }
     if(x.alt == "j_0")
     {
@@ -428,7 +428,7 @@ function imageOver(x)
     }
     if(x.alt == "m_1")
     {
-      locationTitle.innerHTML = "Patomac River";
+      locationTitle.innerHTML = "Potomac River";
       locationTitle.href = "https://earthobservatory.nasa.gov/images/84837/the-sinuous-shenandoah​";
       locationCoordinates.innerHTML = "38°46'32.2 N 78°24'07.1 W";
       locationCoordinates.href = "https://www.google.com/maps/place/Shenandoah+River/@38.7773712,-78.4192219,6454m/data=!3m1!1e3!4m7!3m6!1s0x89b6047d550cb7f7:0x83e4ccba6e682c02!4b1!8m2!3d39.1019371!4d-77.9660084!16zL20vMDMzejYz?entry=ttu";
