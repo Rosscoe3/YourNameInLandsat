@@ -10,6 +10,11 @@ const locationTitle = document.getElementById("locationTitle");
 const locationCoordinates = document.getElementById("locationCoordinates");
 
 let imageSelected = false;
+
+let previousWordTime = 0;
+let imageAnimationWaitTime = 150;
+
+//** Initial words on screen */
 createImages("", "landsat");
 
 enterButton.addEventListener("click", function() {
@@ -19,16 +24,16 @@ enterButton.addEventListener("click", function() {
   // Make sure a value is populating the input field
   if (input) 
   {
+    previousWordTime = (nameBoxes.children.length * imageAnimationWaitTime) + 250;
     if(nameBoxes.children.length > 0) // Check if there are existing boxes
     {
       // Disable all current letters
       for(let x = 0; x < nameBoxes.children.length; x++)
       {
-        nameBoxes.children[x].classList.toggle("active");
+        //nameBoxes.children[x].classList.toggle("active");
+        toggleImageActive(x, nameBoxes.children[x]);
       }
-
     }
-
     createImages(input);
   } 
 });
@@ -87,10 +92,11 @@ function createImages(input, optionalText)
           img.src = "images/test.jpg";
         }
 
+        //** Waits to activate the images, on a timed delay function */
         setTimeout(() => {
-          img.classList.toggle("active");
-        }, 750);
-
+          toggleImageActive(i, img);
+        }, imageAnimationWaitTime);
+        
         nameBoxes.appendChild(img);
       }
       // If the theInput character is a blank space
@@ -104,7 +110,14 @@ function createImages(input, optionalText)
         nameBoxes.appendChild(blankDiv);
       }
     }
-  }, 750); 
+  }, previousWordTime); 
+}
+
+//** sets a timed delay to activate the images based on what index is fed */
+function toggleImageActive(i, img) {
+ setTimeout(function() {
+     img.classList.toggle("active");
+ }, imageAnimationWaitTime * i);
 }
 
 // Execute a function when the user presses a key on the keyboard
@@ -167,11 +180,11 @@ function pickLetterImage(text)
   }
   else if(text.toLowerCase() == "f")
   {
-    number = getRandomInt(0, 1);
+    number = getRandomInt(0, 2);
   }
   else if(text.toLowerCase() == "g")
   {
-    //number = getRandomInt(0, 1);
+    number = getRandomInt(0, 1);
   }
   else if(text.toLowerCase() == "h")
   {
@@ -295,10 +308,10 @@ function imageOver(x)
     }
     if(x.alt == "a_2")
     {
-      locationTitle.innerHTML = "Northeast Greenland National Park, Greenland";
-      locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=9&lat=76.32562&lng=-20.6131&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX1%2FWHKoaTIZiYaCYjyATLoj5JQN20Flg6RCw9X2bYLa3MrjvRwGhiuhfqvmh3gn7owLSSYZ%2B2DWpMAOEbdgF3HGMEj%2FhP%2FjUflAGh%2FSGLlcN9kvMZoNi%2FyYE&datasetId=AWS_LOTL1&fromTime=2024-07-08T00%3A00%3A00.000Z&toTime=2024-07-08T23%3A59%3A59.999Z&layerId=1_TRUE_COLOR&demSource3D=%22MAPZEN%22";
-      locationCoordinates.innerHTML = "76°19'01.6 N 20°26'48.8 W";
-      locationCoordinates.href = "https://www.google.com/maps/place/76%C2%B019'01.6%22N+20%C2%B026'48.8%22W/@76.2712569,-21.2554405,112024m/data=!3m1!1e3!4m10!1m5!3m4!2zODDCsDAzJzE4LjgiTiAxOcKwMDgnNTkuOCJX!8m2!3d80.055233!4d-19.14994!3m3!8m2!3d76.317102!4d-20.446896?entry=ttu";
+      locationTitle.innerHTML = "Lake Guakhmaz, Azerbaijan";
+      locationTitle.href = "";
+      locationCoordinates.innerHTML = "40°39'50.8 N 47°06'36.2 E";
+      locationCoordinates.href = "https://maps.app.goo.gl/tnrVaiMuFiGacH746";
     }
     if(x.alt == "b_0")
     {
@@ -370,12 +383,26 @@ function imageOver(x)
       locationCoordinates.innerHTML = "45°21'42.0 N 29°39'19.5 E";
       locationCoordinates.href = "https://maps.app.goo.gl/7HUZGVwaSQ6m1VFPA";
     }
+    if(x.alt == "f_2")
+    {
+      locationTitle.innerHTML = "Kruger National Park, South Africa";
+      locationTitle.href = "http://earthobservatory.nasa.gov/IOTD/view.php?id=46005";
+      locationCoordinates.innerHTML = "????";
+      locationCoordinates.href = "";
+    }
     if(x.alt == "g_0")
     {
       locationTitle.innerHTML = "Fonte Boa, Amazonas";
       locationTitle.href = "​";
       locationCoordinates.innerHTML = "2°26'30.8 S 66°16'43.7 W";
       locationCoordinates.href = "https://www.google.com/maps/place/2%C2%B026'30.8%22S+66%C2%B016'43.7%22W/@-2.4639488,-66.4453563,11z/data=!4m4!3m3!8m2!3d-2.4419!4d-66.2788?entry=ttu";
+    }
+    if(x.alt == "g_1")
+    {
+      locationTitle.innerHTML = "Pinaki, French Polynesia";
+      locationTitle.href = "https://go.nasa.gov/3zDjJjF​";
+      locationCoordinates.innerHTML = "19°23'43.4 S 138°40'38.6 W";
+      locationCoordinates.href = "https://maps.app.goo.gl/xDQpz6MT9AsQrBkt7";
     }
     if(x.alt == "h_0")
     {
