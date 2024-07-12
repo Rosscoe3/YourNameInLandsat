@@ -167,7 +167,7 @@ function pickLetterImage(text)
   }
   else if(text.toLowerCase() == "f")
   {
-    //number = getRandomInt(0, 1);
+    number = getRandomInt(0, 1);
   }
   else if(text.toLowerCase() == "g")
   {
@@ -179,7 +179,7 @@ function pickLetterImage(text)
   }
   else if(text.toLowerCase() == "i")
   {
-    //number = getRandomInt(0, 1);
+    number = getRandomInt(0, 1);
   }
   else if(text.toLowerCase() == "j")
   {
@@ -199,11 +199,11 @@ function pickLetterImage(text)
   }
   else if(text.toLowerCase() == "n")
   {
-    //number = getRandomInt(0, 1);
+    number = getRandomInt(0, 1);
   }
   else if(text.toLowerCase() == "o")
   {
-    //number = getRandomInt(0, 1);
+    number = getRandomInt(0, 1);
   }
   else if(text.toLowerCase() == "p")
   {
@@ -211,7 +211,7 @@ function pickLetterImage(text)
   }
   else if(text.toLowerCase() == "q")
   {
-    //number = getRandomInt(0, 1);
+    number = getRandomInt(0, 1);
   }
   else if(text.toLowerCase() == "r")
   {
@@ -227,7 +227,7 @@ function pickLetterImage(text)
   }
   else if(text.toLowerCase() == "u")
   {
-    number = getRandomInt(0, 2);
+    number = getRandomInt(0, 1);
   }
   else if(text.toLowerCase() == "v")
   {
@@ -359,9 +359,16 @@ function imageOver(x)
     if(x.alt == "f_0")
     {
       locationTitle.innerHTML = "Mato Grosso, Brazil";
-      locationTitle.href = "​https://worldview.earthdata.nasa.gov/?v=-55.58420292667843,-14.008907715628611,-55.04749399938841,-13.663154175100724&l=Reference_Labels_15m(hidden),Reference_Features_15m(hidden),Coastlines_15m,HLS_L30_Nadir_BRDF_Adjusted_Reflectance,VIIRS_NOAA21_CorrectedReflectance_TrueColor(hidden),VIIRS_NOAA20_CorrectedReflectance_TrueColor(hidden),VIIRS_SNPP_CorrectedReflectance_TrueColor(hidden),MODIS_Aqua_CorrectedReflectance_TrueColor(hidden),MODIS_Terra_CorrectedReflectance_TrueColor&lg=true&t=2024-07-06-T15%3A01%3A15Z";
+      locationTitle.href = "https://worldview.earthdata.nasa.gov/?v=-55.64818728546823,-14.008907715628611,-54.983509640598605,-13.663154175100724&l=Reference_Labels_15m(hidden),Reference_Features_15m(hidden),Coastlines_15m,HLS_L30_Nadir_BRDF_Adjusted_Reflectance,VIIRS_NOAA21_CorrectedReflectance_TrueColor(hidden),VIIRS_NOAA20_CorrectedReflectance_TrueColor(hidden),VIIRS_SNPP_CorrectedReflectance_TrueColor(hidden),MODIS_Aqua_CorrectedReflectance_TrueColor(hidden),MODIS_Terra_CorrectedReflectance_TrueColor&lg=true&t=2024-07-06-T15%3A01%3A15Z";
       locationCoordinates.innerHTML = "13°50'26.9 S 55°17'55.0 W";
-      locationCoordinates.href = "https://www.google.com/maps/place/2%C2%B026'30.8%22S+66%C2%B016'43.7%22W/@-2.4639488,-66.4453563,11z/data=!4m4!3m3!8m2!3d-2.4419!4d-66.2788?entry=ttu";
+      locationCoordinates.href = "https://maps.app.goo.gl/tXas4c27VuWi2pwk6";
+    }
+    if(x.alt == "f_1")
+    {
+      locationTitle.innerHTML = "Odesa Oblast, Ukraine";
+      locationTitle.href = "https://worldview.earthdata.nasa.gov/?v=28.221400133571656,44.619270567145925,30.91447832983515,45.908301224628296&l=Reference_Labels_15m(hidden),Reference_Features_15m(hidden),Coastlines_15m(hidden),HLS_L30_Nadir_BRDF_Adjusted_Reflectance,VIIRS_NOAA21_CorrectedReflectance_TrueColor(hidden),VIIRS_NOAA20_CorrectedReflectance_TrueColor(hidden),VIIRS_SNPP_CorrectedReflectance_TrueColor(hidden),MODIS_Aqua_CorrectedReflectance_TrueColor(hidden),MODIS_Terra_CorrectedReflectance_TrueColor&lg=true&t=2023-11-07-T08%3A00%3A00Z";
+      locationCoordinates.innerHTML = "45°21'42.0 N 29°39'19.5 E";
+      locationCoordinates.href = "https://maps.app.goo.gl/7HUZGVwaSQ6m1VFPA";
     }
     if(x.alt == "g_0")
     {
@@ -383,6 +390,13 @@ function imageOver(x)
       locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=11&lat=64.78787&lng=-22.57242&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX194EmWiFw43hEItR4oMSSn7sLDV1fSwF0Va3Xb%2FYZfz3%2BxHbwk26S%2Be3ydFuvY5MsvihykFJkwEUcFrJ8Pz8ca3jV71cM1tbvlNsmHd%2BkRv87uDiQPP9z57&datasetId=AWS_LOTL1&fromTime=2024-03-28T00%3A00%3A00.000Z&toTime=2024-03-28T23%3A59%3A59.999Z&layerId=1_TRUE_COLOR&demSource3D=%22MAPZEN%22​";
       locationCoordinates.innerHTML = "64°45'46.4 N 22°27'28.0 W";
       locationCoordinates.href = "https://www.google.com/maps/place/64%C2%B045'46.4%22N+22%C2%B027'28.0%22W/@64.7585629,-22.5872018,27545m/data=!3m1!1e3!4m4!3m3!8m2!3d64.7628889!4d-22.4577778?entry=ttu";
+    }
+    if(x.alt == "i_1")
+    {
+      locationTitle.innerHTML = "Conesus Lake, New York";
+      locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=10&lat=42.81807&lng=-77.37259&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX1%2Bq%2BJCRrY6U3aoJ%2Brj%2F7DY6EW6AuueIWAjNyKhLOW9Nc8rB8k5An2t4RlWrv0mCI9hNVG5J3UMy6T9AmSeAjDLBr69TsI7lvPTXUAH5Fr%2FVokwC1Zh8qNHS&datasetId=AWS_LOTL1&fromTime=2024-04-26T00%3A00%3A00.000Z&toTime=2024-04-26T23%3A59%3A59.999Z&layerId=1_TRUE_COLOR&demSource3D=%22MAPZEN%22​";
+      locationCoordinates.innerHTML = "42°47'11.0 N 77°42'58.1 W";
+      locationCoordinates.href = "https://maps.app.goo.gl/jNsDTfUadwb8jBVL6";
     }
     if(x.alt == "j_0")
     {
@@ -429,7 +443,7 @@ function imageOver(x)
     if(x.alt == "m_1")
     {
       locationTitle.innerHTML = "Potomac River";
-      locationTitle.href = "https://earthobservatory.nasa.gov/images/84837/the-sinuous-shenandoah​";
+      locationTitle.href = "https://earthobservatory.nasa.gov/images/88880/paw-paw-bends​";
       locationCoordinates.innerHTML = "38°46'32.2 N 78°24'07.1 W";
       locationCoordinates.href = "https://www.google.com/maps/place/Shenandoah+River/@38.7773712,-78.4192219,6454m/data=!3m1!1e3!4m7!3m6!1s0x89b6047d550cb7f7:0x83e4ccba6e682c02!4b1!8m2!3d39.1019371!4d-77.9660084!16zL20vMDMzejYz?entry=ttu";
     }
@@ -447,11 +461,26 @@ function imageOver(x)
       locationCoordinates.innerHTML = "17°18'29.7 S 63°53'19.0 W";
       locationCoordinates.href = "https://www.google.com/maps/place/17%C2%B018'29.7%22S+63%C2%B053'19.0%22W/@-17.3017879,-63.9208891,16748m/data=!3m1!1e3!4m13!1m8!3m7!1s0x93efc12154605597:0xe0a5b6e6c5b7cf8a!2sYapacani,+Bolivia!3b1!8m2!3d-17.4013758!4d-63.8817832!16s%2Fm%2F05b_187!3m3!8m2!3d-17.308241!4d-63.888606?entry=ttu";
     }
+    if(x.alt == "n_1")
+    {
+      locationTitle.innerHTML = "Yapacani, Bolivia";
+      locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=12&lat=-17.31049&lng=-63.88481&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX1%2B%2Bn6jvPbvFX5I%2FSY7%2B6t8LAnR0lM3GhYU4plszpk28TRykcLixSmMwFV%2BDyf8izVX4WVV7IxQzKx8b%2BWFc%2F8ZaXijRXwMhx1lHj7HsdQSbf534M7biwQKg&datasetId=AWS_LOTL1&fromTime=2024-03-27T00%3A00%3A00.000Z&toTime=2024-03-27T23%3A59%3A59.999Z&layerId=1_TRUE_COLOR&demSource3D=%22MAPZEN%22​";
+      locationCoordinates.innerHTML = "17°18'29.7 S 63°53'19.0 W";
+      locationCoordinates.href = "https://www.google.com/maps/place/17%C2%B018'29.7%22S+63%C2%B053'19.0%22W/@-17.3017879,-63.9208891,16748m/data=!3m1!1e3!4m13!1m8!3m7!1s0x93efc12154605597:0xe0a5b6e6c5b7cf8a!2sYapacani,+Bolivia!3b1!8m2!3d-17.4013758!4d-63.8817832!16s%2Fm%2F05b_187!3m3!8m2!3d-17.308241!4d-63.888606?entry=ttu";
+    }
     if(x.alt == "o_0")
     {
       locationTitle.innerHTML = "Crater Lake, Oregon";
       locationTitle.href = "https://earthobservatory.nasa.gov/images/151161/a-clear-view-of-crater-lake​";
       locationCoordinates.innerHTML = "42°56'10.0 N 122°06'04.7 W";
+      locationCoordinates.href = "https://www.google.com/maps/place/42%C2%B056'10.0%22N+122%C2%B006'04.7%22W/@42.9299656,-122.1478883,34289m/data=!3m1!1e3!4m4!3m3!8m2!3d42.9361!4d-122.1013?entry=ttu";
+    }
+    if(x.alt == "o_1")
+    {
+      locationTitle.innerHTML = "Manicouagan Reservoir";
+      locationTitle.href = "​";
+      locationTitle.style.pointerEvents = "​none";
+      locationCoordinates.innerHTML = "51°22'42.4 N 68°40'27.2 W";
       locationCoordinates.href = "https://www.google.com/maps/place/42%C2%B056'10.0%22N+122%C2%B006'04.7%22W/@42.9299656,-122.1478883,34289m/data=!3m1!1e3!4m4!3m3!8m2!3d42.9361!4d-122.1013?entry=ttu";
     }
     if(x.alt == "p_0")
@@ -467,6 +496,13 @@ function imageOver(x)
       locationTitle.href = "https://go.nasa.gov/3USLQmX​";
       locationCoordinates.innerHTML = "19°58'36.8 N 76°30'30.6 E";
       locationCoordinates.href = "https://www.google.com/maps/place/19%C2%B058'36.8%22N+76%C2%B030'30.6%22E/@19.9770683,76.4830842,6175m/data=!3m1!1e3!4m7!1m2!2m1!1sLonar+Crater,+India!3m3!8m2!3d19.976888!4d76.508512?entry=ttu";
+    }
+    if(x.alt == "q_1")
+    {
+      locationTitle.innerHTML = "Mount Tambora, Indonesia";
+      locationTitle.href = "https://go.nasa.gov/3VYFv8T​";
+      locationCoordinates.innerHTML = "8°14'31.3 S 117°59'31.2 E";
+      locationCoordinates.href = "https://maps.app.goo.gl/1KcvrspMtYDs1qSi8";
     }
     if(x.alt == "r_0")
     {
