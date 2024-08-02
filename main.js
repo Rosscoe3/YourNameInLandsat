@@ -14,6 +14,14 @@ let imageSelected = false;
 let previousWordTime = 0;
 let imageAnimationWaitTime = 150;
 
+var numberOf_A, numberOf_B, numberOf_C, 
+numberOf_D, numberOf_E, numberOf_F, numberOf_G, 
+numberOf_H, numberOf_I, numberOf_J, numberOf_K, 
+numberOf_L, numberOf_M, numberOf_N, numberOf_O, 
+numberOf_P, numberOf_Q, numberOf_R, numberOf_S, 
+numberOf_T, numberOf_U, numberOf_V, numberOf_W, 
+numberOf_X, numberOf_Y, numberOf_Z = [];
+
 //** Initial words on screen */
 createImages("", "landsat");
 
@@ -50,6 +58,8 @@ function createImages(input, optionalText)
   {
     theInput = optionalText;
   }
+
+  resetLetterArrays();
   
   setTimeout(() => {
     // Remove all child elements to start with a clean slate
@@ -65,8 +75,6 @@ function createImages(input, optionalText)
     // Create amount of images based on the number of characters
     for(let i = 0; i < theInput.length; i++)
     {
-      console.log(theInput[i]);
-
       // If the theInput character isn't a blank space
       if(theInput[i] != " ")
       {
@@ -153,6 +161,7 @@ function downloadDivAsPng(divId, filename) {
     });
 }
 
+//** PICK A IMAGE FOR THE LETTER GIVEN */
 function pickLetterImage(text)
 {
   var number = 0;
@@ -161,6 +170,55 @@ function pickLetterImage(text)
   if(text.toLowerCase() == "a")
   {
     number = getRandomInt(0, 2);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_A.includes(0) && numberOf_A.includes(1) && numberOf_A.includes(2))
+    {
+      number = getRandomInt(0, 2);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_A.includes(0))
+    {
+      number = 1;
+
+      if (numberOf_A.includes(1))
+      {
+        number = 2;
+      }
+      else if (numberOf_A.includes(2))
+      {
+        number = 1;
+      }
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_A.includes(1))
+    {
+      number = 0;
+
+      if (numberOf_A.includes(0))
+      {
+        number = 2;
+      }
+      else if (numberOf_A.includes(2))
+      {
+        number = 0;
+      }
+    }
+    //** IF IT INCLUDES 2 */
+    else if(numberOf_A.includes(2))
+    {
+      number = getRandomInt(0, 1);
+
+      if (numberOf_A.includes(0))
+      {
+        number = 1;
+      }
+      else if (numberOf_A.includes(1))
+      {
+        number = 0;
+      }
+    }
+    numberOf_A.push(number);
   }
   else if(text.toLowerCase() == "b")
   {
@@ -169,6 +227,55 @@ function pickLetterImage(text)
   else if(text.toLowerCase() == "c")
   {
     number = getRandomInt(0, 2);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_C.includes(0) && numberOf_C.includes(1) && numberOf_C.includes(2))
+    {
+      number = getRandomInt(0, 2);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_C.includes(0))
+    {
+      number = 1;
+
+      if (numberOf_C.includes(1))
+      {
+        number = 2;
+      }
+      else if (numberOf_C.includes(2))
+      {
+        number = 1;
+      }
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_C.includes(1))
+    {
+      number = 0;
+
+      if (numberOf_C.includes(0))
+      {
+        number = 2;
+      }
+      else if (numberOf_C.includes(2))
+      {
+        number = 0;
+      }
+    }
+    //** IF IT INCLUDES 2 */
+    else if(numberOf_C.includes(2))
+    {
+      number = getRandomInt(0, 1);
+
+      if (numberOf_C.includes(0))
+      {
+        number = 1;
+      }
+      else if (numberOf_C.includes(1))
+      {
+        number = 0;
+      }
+    }
+    numberOf_C.push(number);
   }
   else if(text.toLowerCase() == "d")
   {
@@ -177,14 +284,126 @@ function pickLetterImage(text)
   else if(text.toLowerCase() == "e")
   {
     number = getRandomInt(0, 2);
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_E.includes(0) && numberOf_E.includes(1) && numberOf_E.includes(2))
+    {
+      number = getRandomInt(0, 2);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_E.includes(0))
+    {
+      number = 1;
+
+      if (numberOf_E.includes(1))
+      {
+        number = 2;
+      }
+      else if (numberOf_E.includes(2))
+      {
+        number = 1;
+      }
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_E.includes(1))
+    {
+      number = 0;
+
+      if (numberOf_E.includes(0))
+      {
+        number = 2;
+      }
+      else if (numberOf_E.includes(2))
+      {
+        number = 0;
+      }
+    }
+    //** IF IT INCLUDES 2 */
+    else if(numberOf_E.includes(2))
+    {
+      number = getRandomInt(0, 1);
+
+      if (numberOf_E.includes(0))
+      {
+        number = 1;
+      }
+      else if (numberOf_E.includes(1))
+      {
+        number = 0;
+      }
+    }
+    numberOf_E.push(number);
   }
   else if(text.toLowerCase() == "f")
   {
     number = getRandomInt(0, 2);
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_F.includes(0) && numberOf_F.includes(1) && numberOf_F.includes(2))
+    {
+      number = getRandomInt(0, 2);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_F.includes(0))
+    {
+      number = 1;
+
+      if (numberOf_F.includes(1))
+      {
+        number = 2;
+      }
+      else if (numberOf_F.includes(2))
+      {
+        number = 1;
+      }
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_F.includes(1))
+    {
+      number = 0;
+
+      if (numberOf_F.includes(0))
+      {
+        number = 2;
+      }
+      else if (numberOf_F.includes(2))
+      {
+        number = 0;
+      }
+    }
+    //** IF IT INCLUDES 2 */
+    else if(numberOf_F.includes(2))
+    {
+      number = getRandomInt(0, 1);
+
+      if (numberOf_F.includes(0))
+      {
+        number = 1;
+      }
+      else if (numberOf_F.includes(1))
+      {
+        number = 0;
+      }
+    }
+    numberOf_F.push(number);
   }
   else if(text.toLowerCase() == "g")
   {
     number = getRandomInt(0, 1);
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_G.includes(0) && numberOf_G.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_G.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_G.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_G.push(number);
   }
   else if(text.toLowerCase() == "h")
   {
@@ -193,10 +412,44 @@ function pickLetterImage(text)
   else if(text.toLowerCase() == "i")
   {
     number = getRandomInt(0, 1);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_I.includes(0) && numberOf_I.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_I.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_I.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_I.push(number);
   }
   else if(text.toLowerCase() == "j")
   {
     number = getRandomInt(0, 1);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_J.includes(0) && numberOf_J.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_J.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_J.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_J.push(number);
   }
   else if(text.toLowerCase() == "k")
   {
@@ -205,18 +458,118 @@ function pickLetterImage(text)
   else if(text.toLowerCase() == "l")
   {
     number = getRandomInt(0, 1);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_L.includes(0) && numberOf_L.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_L.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_L.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_L.push(number);
   }
   else if(text.toLowerCase() == "m")
   {
     number = getRandomInt(0, 2);
+    
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_M.includes(0) && numberOf_M.includes(1) && numberOf_M.includes(2))
+    {
+      number = getRandomInt(0, 2);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_M.includes(0))
+    {
+      number = 1;
+
+      if (numberOf_M.includes(1))
+      {
+        number = 2;
+      }
+      else if (numberOf_M.includes(2))
+      {
+        number = 1;
+      }
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_M.includes(1))
+    {
+      number = 0;
+
+      if (numberOf_M.includes(0))
+      {
+        number = 2;
+      }
+      else if (numberOf_M.includes(2))
+      {
+        number = 0;
+      }
+    }
+    //** IF IT INCLUDES 2 */
+    else if(numberOf_M.includes(2))
+    {
+      number = getRandomInt(0, 1);
+
+      if (numberOf_M.includes(0))
+      {
+        number = 1;
+      }
+      else if (numberOf_M.includes(1))
+      {
+        number = 0;
+      }
+    }
+    numberOf_M.push(number);
   }
   else if(text.toLowerCase() == "n")
   {
     number = getRandomInt(0, 1);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_N.includes(0) && numberOf_N.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_N.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_N.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_N.push(number);
   }
   else if(text.toLowerCase() == "o")
   {
     number = getRandomInt(0, 1);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_O.includes(0) && numberOf_O.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_O.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_O.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_O.push(number);
   }
   else if(text.toLowerCase() == "p")
   {
@@ -225,6 +578,23 @@ function pickLetterImage(text)
   else if(text.toLowerCase() == "q")
   {
     number = getRandomInt(0, 1);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_Q.includes(0) && numberOf_Q.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_Q.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_Q.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_Q.push(number);
   }
   else if(text.toLowerCase() == "r")
   {
@@ -233,14 +603,65 @@ function pickLetterImage(text)
   else if(text.toLowerCase() == "s")
   {
     number = getRandomInt(0, 1);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_S.includes(0) && numberOf_S.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_S.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_S.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_S.push(number);
   }
   else if(text.toLowerCase() == "t")
   {
     number = getRandomInt(0, 1);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_T.includes(0) && numberOf_T.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_T.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_T.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_T.push(number);
   }
   else if(text.toLowerCase() == "u")
   {
     number = getRandomInt(0, 1);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_U.includes(0) && numberOf_U.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_U.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_U.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_U.push(number);
   }
   else if(text.toLowerCase() == "v")
   {
@@ -249,14 +670,65 @@ function pickLetterImage(text)
   else if(text.toLowerCase() == "w")
   {
     number = getRandomInt(0, 1);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_W.includes(0) && numberOf_W.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_W.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_W.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_W.push(number);
   }
   else if(text.toLowerCase() == "x")
   {
     number = getRandomInt(0, 1);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_X.includes(0) && numberOf_X.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_X.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_X.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_X.push(number);
   }
   else if(text.toLowerCase() == "y")
   {
     number = getRandomInt(0, 1);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_Y.includes(0) && numberOf_Y.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_Y.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_Y.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_Y.push(number);
   }
   else if(text.toLowerCase() == "z")
   {
@@ -277,8 +749,6 @@ function getRandomInt(min, max) {
 
 function imageOver(x)
 {
-  console.log(imageSelected);
-
   if(!imageSelected)
   {
     //** If location title isn't active, enable it*/
@@ -662,6 +1132,36 @@ function imageOut(x)
     // }
   }
 
+}
+
+function resetLetterArrays()
+{
+  numberOf_A = []; 
+  numberOf_B = []; 
+  numberOf_C = []; 
+  numberOf_D = []; 
+  numberOf_E = []; 
+  numberOf_F = []; 
+  numberOf_G = [];
+  numberOf_H = []; 
+  numberOf_I = []; 
+  numberOf_J = []; 
+  numberOf_K = []; 
+  numberOf_L = []; 
+  numberOf_M = []; 
+  numberOf_N = []; 
+  numberOf_O = []; 
+  numberOf_P = []; 
+  numberOf_Q = []; 
+  numberOf_R = []; 
+  numberOf_S = []; 
+  numberOf_T = []; 
+  numberOf_U = []; 
+  numberOf_V = []; 
+  numberOf_W = []; 
+  numberOf_X = []; 
+  numberOf_Y = []; 
+  numberOf_Z = [];
 }
 
 //** Click event to handle selection of images */
