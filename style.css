@@ -48,6 +48,36 @@ body {
   border: 1px solid #ccc;
 }
 
+.inputErrorPopup{
+  width: fit-content;
+  padding: 2%;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 100%;
+  left: 2.75%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  flex: none;
+
+  transition: all ease-in-out 0.5s;
+}
+
+.inputErrorPopup.active{
+  opacity: 100%;
+}
+
+/* Popup arrow */
+.inputErrorPopup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translateX(-100%) translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #555 transparent transparent;
+}
+
 #enterButton {
   padding: 10px 20px;
   border: 1px solid #ccc;
@@ -187,5 +217,82 @@ body {
 
 .location-coordinates.active {
   opacity: 100%;
+}
+
+.popup {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  text-align: center;
+  z-index: 999;
+  color: black;
+  flex: none;
+
+  font-size: 85%;
+
+  bottom: 100%;
+  right: 40%;
+
+  opacity: 0%;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+.popup:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 1px 14px rgba(0,0,0,.2);
+}
+.popup:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  box-shadow: 0 1px 14px rgba(0,0,0,.2);
+  background: #fff;
+  position: absolute;
+  z-index: 998;
+}
+/*
+Different arrow positioning
+*/
+.popup.arrow-top:before {
+  left: calc(50% - 10px);
+  top: -8px;
+}
+.popup.arrow-right:before {
+  top: calc(50% - 10px);
+  right: -8px;
+}
+.popup.arrow-bottom:before {
+  left: calc(50% - 10px);
+  bottom: -8px;
+}
+.popup.arrow-bottom.active{
+  opacity: 100%;
+}
+
+.popup.arrow-left:before {
+  top: calc(50% - 10px);
+  left: -8px;
+}
+
+/* 
+Popup wrapper
+This is where we add the white background and padding of the content within the popup
+*/
+.popup-wrapper {
+  width: 100%;
+  padding: 1%;
+  padding-right: 10%;
+  padding-left: 10%;
+  border-radius: 4px;
+  background: #fff;
+  position: relative;
+  z-index: 998;  
 }
 

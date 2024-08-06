@@ -8,9 +8,12 @@ const nameBoxes = document.getElementById("nameBoxes");
 const downloadButton = document.getElementById("downloadBtn");
 const locationTitle = document.getElementById("locationTitle");
 const locationCoordinates = document.getElementById("locationCoordinates");
+const inputPopup = document.getElementById("inputPopup");
+const inputPopupText = document.getElementById("popupText");
 
 let imageSelected = false;
 
+const inputErrorWaitTime = 5000;
 let previousWordTime = 0;
 let imageAnimationWaitTime = 150;
 
@@ -22,27 +25,95 @@ numberOf_P, numberOf_Q, numberOf_R, numberOf_S,
 numberOf_T, numberOf_U, numberOf_V, numberOf_W, 
 numberOf_X, numberOf_Y, numberOf_Z = [];
 
+//** I'm sorry for whoever has to read this, but here's all the bad words i'm trying to filter out */
+const badWords = [
+  "asshole", "arsehole", "bitch", "bastard", "bollocks", "bullshit" , "cock", "cocksucker", "cunt",
+  "dick", "dickhead", "dumbass", "fuck", "fucker", "fucking", "fag", "faggot", "goddamn", "goddammit", "goddamnit",
+  "horseshit", "jackass", "kike", "mother fucker", "motherfucker", "nigga", "nigger", "pussy", 
+  "slut", "shit", "shite", "twat", "whore"];
+
+const badWordResponses = ["Please no profanity!", "Only nice language, thank you", "Rude!", 
+  "No bad words!", "Cursing will not be tolerated!", "Come on, really?", "Only nice words will be accepted"]  
+
+//const Filter = require("bad-words");
+//const filter = new Filter();
+
 //** Initial words on screen */
 createImages("", "landsat");
 
+//** Functionality for when the user clicks enter */
 enterButton.addEventListener("click", function() {
   
-  const input = nameInput.value.trim();
+  let input = nameInput.value.trim();
   
   // Make sure a value is populating the input field
   if (input) 
   {
-    previousWordTime = (nameBoxes.children.length * imageAnimationWaitTime) + 250;
-    if(nameBoxes.children.length > 0) // Check if there are existing boxes
+    let hasLetters = /^[ A-Za-z]+$/.test(input);
+    //** Only if the input has american letters */
+    if(hasLetters)
     {
-      // Disable all current letters
-      for(let x = 0; x < nameBoxes.children.length; x++)
+      input.toLowerCase();
+
+      let includesBadWords = badWords.some(word => input.toLowerCase().includes(word)||input.toLowerCase() == word);      
+
+      if(!includesBadWords)
       {
-        //nameBoxes.children[x].classList.toggle("active");
-        toggleImageActive(x, nameBoxes.children[x]);
+        //** deactivate inputPopup if it is active */
+        if(inputPopup.classList.contains("active"))
+        {
+          inputPopup.classList.toggle("active");
+        }
+  
+        previousWordTime = (nameBoxes.children.length * imageAnimationWaitTime) + 250;
+        if(nameBoxes.children.length > 0) // Check if there are existing boxes
+        {
+          // Disable all current letters
+          for(let x = 0; x < nameBoxes.children.length; x++)
+          {
+            //nameBoxes.children[x].classList.toggle("active");
+            toggleImageActive(x, nameBoxes.children[x]);
+          }
+        }
+        createImages(input);
+      }
+      //** If the input includes bad words */
+      else
+      {
+        if(!inputPopup.classList.contains("active"))
+        {
+          inputPopupText.innerHTML = badWordResponses[getRandomInt(0, (badWordResponses.length - 1))];
+          inputPopup.classList.toggle("active");
+          setTimeout(() => 
+          {
+            //** make sure it is still active before disabling it */
+            if(inputPopup.classList.contains("active"))
+            {
+              inputPopup.classList.toggle("active");
+            }
+          }, inputErrorWaitTime);
+        }
+      }
+
+    }
+    //** if the word includes symbols */
+    else
+    {
+      //** activate input popup if it is inactive */
+      if(!inputPopup.classList.contains("active"))
+      {
+        inputPopupText.innerHTML = "Please only enter letters from A-Z"
+        inputPopup.classList.toggle("active");
+        setTimeout(() => 
+        {
+          //** make sure it is still active before disabling it */
+          if(inputPopup.classList.contains("active"))
+          {
+            inputPopup.classList.toggle("active");
+          }
+        }, inputErrorWaitTime);
       }
     }
-    createImages(input);
   } 
 });
 
@@ -59,8 +130,7 @@ function createImages(input, optionalText)
     theInput = optionalText;
   }
 
-  resetLetterArrays();
-  
+  resetLetterArrays(); 
   setTimeout(() => {
     // Remove all child elements to start with a clean slate
     while (nameBoxes.firstChild) 
@@ -411,22 +481,161 @@ function pickLetterImage(text)
   }
   else if(text.toLowerCase() == "i")
   {
-    number = getRandomInt(0, 1);
+    number = getRandomInt(0, 3);
 
     // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
-    if(numberOf_I.includes(0) && numberOf_I.includes(1))
+    if(numberOf_I.includes(0) && numberOf_I.includes(1) 
+      && numberOf_I.includes(2) && numberOf_I.includes(3))
     {
-      number = getRandomInt(0, 1);
+      number = getRandomInt(0, 3);
     }
     //** IF IT INCLUDES 0 */
     else if(numberOf_I.includes(0))
     {
-      number = 1;
+      if (numberOf_I.includes(1))
+      {
+        if (numberOf_I.includes(2))
+        {
+          number = 3;
+        }
+        else
+        {
+          number = 2;
+        }
+      }
+      else if (numberOf_I.includes(2))
+      {
+        if (numberOf_I.includes(1))
+        {
+          number = 3;
+        }
+        else
+        {
+          number = 1;
+        }
+      }
+      else if (numberOf_I.includes(3))
+      {
+        if (numberOf_I.includes(1))
+        {
+          number = 2;
+        }
+        else
+        {
+          number = 1;
+        }
+      }
     }
     //** IF IT INCLUDES 1 */
     else if(numberOf_I.includes(1))
     {
-      number = 0;
+      if (numberOf_I.includes(0))
+      {
+        if (numberOf_I.includes(2))
+        {
+          number = 3;
+        }
+        else
+        {
+          number = 2;
+        }
+      }
+      else if (numberOf_I.includes(2))
+      {
+        if (numberOf_I.includes(0))
+        {
+          number = 3;
+        }
+        else
+        {
+          number = 0;
+        }
+      }
+      else if (numberOf_I.includes(3))
+      {
+        if (numberOf_I.includes(2))
+        {
+          number = 0;
+        }
+        else
+        {
+          number = 1;
+        }
+      }
+    }
+    //** IF IT INCLUDES 2 */
+    else if(numberOf_I.includes(2))
+    {
+      if (numberOf_I.includes(0))
+        {
+          if (numberOf_I.includes(1))
+          {
+            number = 3;
+          }
+          else
+          {
+            number = 1;
+          }
+      }
+      else if (numberOf_I.includes(1))
+      {
+        if (numberOf_I.includes(0))
+        {
+          number = 3;
+        }
+        else
+        {
+          number = 0;
+        }
+      }
+      else if (numberOf_I.includes(3))
+      {
+        if (numberOf_I.includes(1))
+        {
+          number = 0;
+        }
+        else
+        {
+          number = 1;
+        }
+      }
+    }
+    //** IF IT INCLUDES 2 */
+    else if(numberOf_I.includes(3))
+    {
+      if (numberOf_I.includes(0))
+        {
+          if (numberOf_I.includes(1))
+          {
+            number = 2;
+          }
+          else
+          {
+            number = 1;
+          }
+      }
+      else if (numberOf_I.includes(1))
+      {
+        if (numberOf_I.includes(0))
+        {
+          number = 2;
+        }
+        else
+        {
+          number = 0;
+        }
+      }
+      else if (numberOf_I.includes(2))
+      {
+        if (numberOf_I.includes(1))
+        {
+          number = 0;
+        }
+        else
+        {
+          number = 1;
+        }
+      }
     }
     numberOf_I.push(number);
   }
@@ -894,6 +1103,20 @@ function imageOver(x)
       locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=10&lat=42.81807&lng=-77.37259&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX1%2Bq%2BJCRrY6U3aoJ%2Brj%2F7DY6EW6AuueIWAjNyKhLOW9Nc8rB8k5An2t4RlWrv0mCI9hNVG5J3UMy6T9AmSeAjDLBr69TsI7lvPTXUAH5Fr%2FVokwC1Zh8qNHS&datasetId=AWS_LOTL1&fromTime=2024-04-26T00%3A00%3A00.000Z&toTime=2024-04-26T23%3A59%3A59.999Z&layerId=1_TRUE_COLOR&demSource3D=%22MAPZEN%22​";
       locationCoordinates.innerHTML = "42°47'11.0 N 77°42'58.1 W";
       locationCoordinates.href = "https://maps.app.goo.gl/jNsDTfUadwb8jBVL6";
+    }
+    if(x.alt == "i_2")
+    {
+      locationTitle.innerHTML = "Etosha National Park, Namibia";
+      locationTitle.href = "https://eros.usgs.gov/media-gallery/earth-as-art/6/salty-desolation​";
+      locationCoordinates.innerHTML = "18°29'15.2 S 16°10'14.6 E";
+      locationCoordinates.href = "https://maps.app.goo.gl/s6ujVrXGJKnbrppH7";
+    }
+    if(x.alt == "i_3")
+    {
+      locationTitle.innerHTML = "Djebel Ouarkziz, Morocco";
+      locationTitle.href = "https://eros.usgs.gov/media-gallery/earth-as-art/6/desert-ribbons​";
+      locationCoordinates.innerHTML = "28°18'01.5 N 10°33'58.5 W";
+      locationCoordinates.href = "https://maps.app.goo.gl/osEU3NnVtShw6CBN9";
     }
     if(x.alt == "j_0")
     {
