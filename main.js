@@ -29,7 +29,7 @@ numberOf_X, numberOf_Y, numberOf_Z = [];
 const badWords = [
   "asshole", "arsehole", "bitch", "bastard", "bollocks", "bullshit" , "cock", "cocksucker", "cunt",
   "dick", "dickhead", "dumbass", "fuck", "fucker", "fucking", "fag", "faggot", "goddamn", "goddammit", "goddamnit",
-  "horseshit", "jackass", "kike", "mother fucker", "motherfucker", "nigga", "nigger", "pussy", 
+  "horseshit", "jackass", "kike", "mother fucker", "motherfucker", "nigga", "nigger", "pussy", "penis", 
   "slut", "shit", "shite", "twat", "whore"];
 
 const badWordResponses = ["Please no profanity!", "Only nice language, thank you", "Rude!", 
@@ -292,7 +292,23 @@ function pickLetterImage(text)
   }
   else if(text.toLowerCase() == "b")
   {
-    //number = getRandomInt(0, 1);
+    number = getRandomInt(0, 1);
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_B.includes(0) && numberOf_B.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_B.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_B.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_B.push(number);
   }
   else if(text.toLowerCase() == "c")
   {
@@ -349,7 +365,23 @@ function pickLetterImage(text)
   }
   else if(text.toLowerCase() == "d")
   {
-    //number = getRandomInt(0, 1);
+    number = getRandomInt(0, 1);
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_D.includes(0) && numberOf_D.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_D.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_D.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_D.push(number);
   }
   else if(text.toLowerCase() == "e")
   {
@@ -405,53 +437,21 @@ function pickLetterImage(text)
   }
   else if(text.toLowerCase() == "f")
   {
-    number = getRandomInt(0, 2);
+    number = getRandomInt(0, 1);
     // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
-    if(numberOf_F.includes(0) && numberOf_F.includes(1) && numberOf_F.includes(2))
+    if(numberOf_F.includes(0) && numberOf_F.includes(1))
     {
-      number = getRandomInt(0, 2);
+      number = getRandomInt(0, 1);
     }
     //** IF IT INCLUDES 0 */
     else if(numberOf_F.includes(0))
     {
       number = 1;
-
-      if (numberOf_F.includes(1))
-      {
-        number = 2;
-      }
-      else if (numberOf_F.includes(2))
-      {
-        number = 1;
-      }
     }
     //** IF IT INCLUDES 1 */
     else if(numberOf_F.includes(1))
     {
       number = 0;
-
-      if (numberOf_F.includes(0))
-      {
-        number = 2;
-      }
-      else if (numberOf_F.includes(2))
-      {
-        number = 0;
-      }
-    }
-    //** IF IT INCLUDES 2 */
-    else if(numberOf_F.includes(2))
-    {
-      number = getRandomInt(0, 1);
-
-      if (numberOf_F.includes(0))
-      {
-        number = 1;
-      }
-      else if (numberOf_F.includes(1))
-      {
-        number = 0;
-      }
     }
     numberOf_F.push(number);
   }
@@ -782,7 +782,24 @@ function pickLetterImage(text)
   }
   else if(text.toLowerCase() == "p")
   {
-    //number = getRandomInt(0, 1);
+    number = getRandomInt(0, 1);
+
+    // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
+    if(numberOf_P.includes(0) && numberOf_P.includes(1))
+    {
+      number = getRandomInt(0, 1);
+    }
+    //** IF IT INCLUDES 0 */
+    else if(numberOf_P.includes(0))
+    {
+      number = 1;
+    }
+    //** IF IT INCLUDES 1 */
+    else if(numberOf_P.includes(1))
+    {
+      number = 0;
+    }
+    numberOf_P.push(number);
   }
   else if(text.toLowerCase() == "q")
   {
@@ -811,22 +828,53 @@ function pickLetterImage(text)
   }
   else if(text.toLowerCase() == "s")
   {
-    number = getRandomInt(0, 1);
-
+    number = getRandomInt(0, 2);
     // ** IF IT INCLUDES ALL OF THEM, JUST PICK A RANDOM ONE */
-    if(numberOf_S.includes(0) && numberOf_S.includes(1))
+    if(numberOf_S.includes(0) && numberOf_S.includes(1) && numberOf_S.includes(2))
     {
-      number = getRandomInt(0, 1);
+      number = getRandomInt(0, 2);
     }
     //** IF IT INCLUDES 0 */
     else if(numberOf_S.includes(0))
     {
       number = 1;
+
+      if (numberOf_S.includes(1))
+      {
+        number = 2;
+      }
+      else if (numberOf_S.includes(2))
+      {
+        number = 1;
+      }
     }
     //** IF IT INCLUDES 1 */
     else if(numberOf_S.includes(1))
     {
       number = 0;
+
+      if (numberOf_S.includes(0))
+      {
+        number = 2;
+      }
+      else if (numberOf_S.includes(2))
+      {
+        number = 0;
+      }
+    }
+    //** IF IT INCLUDES 2 */
+    else if(numberOf_S.includes(2))
+    {
+      number = getRandomInt(0, 1);
+
+      if (numberOf_S.includes(0))
+      {
+        number = 1;
+      }
+      else if (numberOf_S.includes(1))
+      {
+        number = 0;
+      }
     }
     numberOf_S.push(number);
   }
@@ -999,6 +1047,13 @@ function imageOver(x)
       locationCoordinates.innerHTML = "35°08'41.1 N 93°03'16.5 W";
       locationCoordinates.href = "https://www.google.com/maps/place/35%C2%B008'41.1%22N+93%C2%B003'16.5%22W/@35.150256,-93.0998349,20284m/data=!3m1!1e3!4m4!3m3!8m2!3d35.14475!4d-93.0545833?entry=ttu";
     }
+    if(x.alt == "b_1")
+    {
+      locationTitle.innerHTML = "Humaitá, Brazil";
+      locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=12&lat=-7.59581&lng=-62.89192&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX18apdBT62HBIZ0ciT9rWDoSSvm91S%2BCMWuHGqXT7coXfm0CczjLG432T5axTsIi5sR2tVn7tFs95d9lu6xAAsh6kxM5tTJVRKG5HZBLC2Hl5wlZ0uxtSEVw&datasetId=AWS_LOTL1&fromTime=2023-07-06T00%3A00%3A00.000Z&toTime=2023-07-06T23%3A59%3A59.999Z&layerId=2_TRUE_COLOR_PANSHARPENED&demSource3D=%22MAPZEN%22";
+      locationCoordinates.innerHTML = "7°37'00.1 S 62°55'17.0 W";
+      locationCoordinates.href = "https://maps.app.goo.gl/BpsMZRtaDWr6jb9W8";
+    }
     if(x.alt == "c_0")
     {
       locationTitle.innerHTML = "Black Rock Desert, Nevada";
@@ -1026,6 +1081,13 @@ function imageOver(x)
       locationTitle.href = "https://earthobservatory.nasa.gov/images/8657/akimiski-island-canada";
       locationCoordinates.innerHTML = "53°00'58.5 N 81°18'24.6 W";
       locationCoordinates.href = "https://www.google.com/maps/place/53%C2%B000'58.5%22N+81%C2%B018'24.6%22W/@52.8535127,-81.6813828,147353m/data=!3m1!1e3!4m4!3m3!8m2!3d53.01625!4d-81.3068333?entry=ttu";
+    }
+    if(x.alt == "d_1")
+    {
+      locationTitle.innerHTML = "Lake Tandou, Australia";
+      locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=10&lat=-32.63764&lng=141.99142&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX1%2BzKcE7kPlfLMVBA32qupZONOT2XHXYc4WOzpkn0yeK%2BqqfLarzaJtSu%2FqhbCdKawLCU5ucZvccnFhQQIqggiiN7AGb0fRxSJ5PxvYC6p1D2CwYeVTfUbPd&datasetId=AWS_LOTL1&fromTime=2023-08-08T00%3A00%3A00.000Z&toTime=2023-08-08T23%3A59%3A59.999Z&layerId=2_TRUE_COLOR_PANSHARPENED&demSource3D=%22MAPZEN%22";
+      locationCoordinates.innerHTML = "32°37'17.8 S 142°04'21.4 E";
+      locationCoordinates.href = "https://maps.app.goo.gl/z3kPn1HxZUxS4FMCA";
     }
     if(x.alt == "e_0")
     {
@@ -1057,17 +1119,10 @@ function imageOver(x)
     }
     if(x.alt == "f_1")
     {
-      locationTitle.innerHTML = "Odesa Oblast, Ukraine";
-      locationTitle.href = "https://worldview.earthdata.nasa.gov/?v=28.221400133571656,44.619270567145925,30.91447832983515,45.908301224628296&l=Reference_Labels_15m(hidden),Reference_Features_15m(hidden),Coastlines_15m(hidden),HLS_L30_Nadir_BRDF_Adjusted_Reflectance,VIIRS_NOAA21_CorrectedReflectance_TrueColor(hidden),VIIRS_NOAA20_CorrectedReflectance_TrueColor(hidden),VIIRS_SNPP_CorrectedReflectance_TrueColor(hidden),MODIS_Aqua_CorrectedReflectance_TrueColor(hidden),MODIS_Terra_CorrectedReflectance_TrueColor&lg=true&t=2023-11-07-T08%3A00%3A00Z";
-      locationCoordinates.innerHTML = "45°21'42.0 N 29°39'19.5 E";
-      locationCoordinates.href = "https://maps.app.goo.gl/7HUZGVwaSQ6m1VFPA";
-    }
-    if(x.alt == "f_2")
-    {
       locationTitle.innerHTML = "Kruger National Park, South Africa";
-      locationTitle.href = "http://earthobservatory.nasa.gov/IOTD/view.php?id=46005";
-      locationCoordinates.innerHTML = "????";
-      locationCoordinates.href = "";
+      locationTitle.href = "https://go.nasa.gov/3AdjEDu";
+      locationCoordinates.innerHTML = "28°44'01.3 S 29°12'30.1 E";
+      locationCoordinates.href = "https://maps.app.goo.gl/a1UArynvAqGGYMXg6";
     }
     if(x.alt == "g_0")
     {
@@ -1210,6 +1265,13 @@ function imageOver(x)
       locationCoordinates.innerHTML = "68°12'54.4 N 134°23'15.3 W";
       locationCoordinates.href = "https://www.google.com/maps/place/68%C2%B012'54.4%22N+134%C2%B023'15.3%22W/@68.2079858,-134.5221453,23980m/data=!3m1!1e3!4m4!3m3!8m2!3d68.215103!4d-134.387585?entry=ttu";
     }
+    if(x.alt == "p_1")
+    {
+      locationTitle.innerHTML = "Riberalta, Bolivia";
+      locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=11&lat=-10.89973&lng=-66.06422&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX18ySUge%2FIfc3iW7AU2HUZXzJJ1Myi1j9znNnP%2BBkPvcqQCSbcw5KXus9Kfcstc9dn7G4A6PWR%2BNTMGR%2BKYH%2FUqs2iwP2GFi4SXK3csoSCDgPmk2uoKpBjRL&datasetId=AWS_LOTL1&fromTime=2022-06-24T00%3A00%3A00.000Z&toTime=2022-06-24T23%3A59%3A59.999Z&layerId=2_TRUE_COLOR_PANSHARPENED&demSource3D=%22MAPZEN%22​";
+      locationCoordinates.innerHTML = "10°52'44.0 S 66°02'52.0 W";
+      locationCoordinates.href = "https://maps.app.goo.gl/sW32pDeYpN3JQQT18";
+    }
     if(x.alt == "q_0")
     {
       locationTitle.innerHTML = "Lonar Crater, India";
@@ -1244,6 +1306,13 @@ function imageOver(x)
       locationTitle.href = "https://earthobservatory.nasa.gov/images/150521/flooding-in-ndjamena";
       locationCoordinates.innerHTML = "12°00'27.7 N 15°03'46.2 E";
       locationCoordinates.href = "https://www.google.com/maps/place/12%C2%B000'27.7%22N+15%C2%B003'46.2%22E/@12.0046806,15.0451832,17158m/data=!3m1!1e3!4m13!1m8!3m7!1s0x11196053fc686ffb:0xf9442c3f64221374!2sDigangali,+Chad!3b1!8m2!3d12.0619444!4d15.0727778!16s%2Fg%2F11nmsbmc9w!3m3!8m2!3d12.007689!4d15.062824?entry=ttu";
+    }
+    if(x.alt == "s_2")
+    {
+      locationTitle.innerHTML = "Rio Chapare, Bolivia";
+      locationTitle.href = "https://apps.sentinel-hub.com/eo-browser/?zoom=14&lat=-16.9319&lng=-65.23167&themeId=DEFAULT-THEME&visualizationUrl=U2FsdGVkX1%2FNAzRs%2B%2F33r75frJ5z8uNkCd3wLBh145JGwZJBjykWx86Xsd%2FS00PixdBm5Cs4p1zfMcHZk9r27yyzj6kYvBx8UfJjsuyODvYtYCUUY3qOvgP5ym2wAL9c&datasetId=AWS_LOTL1&fromTime=2023-06-20T00%3A00%3A00.000Z&toTime=2023-06-20T23%3A59%3A59.999Z&layerId=2_TRUE_COLOR_PANSHARPENED&demSource3D=%22MAPZEN%22";
+      locationCoordinates.innerHTML = "16°56'04.7 S 65°13'44.2 W";
+      locationCoordinates.href = "https://maps.app.goo.gl/MRR8oJSdDTTBVP4z5";
     }
     if(x.alt == "t_0")
     {
